@@ -9,4 +9,3 @@ def download_data():
   url = 'https://files.minsa.gob.pe/s/eRqxR35ZCxrzNgr/download'
   filename = 'data.csv'
   urllib.request.urlretrieve(url, filename)
-download_data()
