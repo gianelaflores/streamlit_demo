@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import urllib.request
-st.title('Datos aleatorios')
+st.title('Datos Demo')
 
 @st.experimental_memo
 def download_data():
