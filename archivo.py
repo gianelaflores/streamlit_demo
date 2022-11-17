@@ -1,11 +1,7 @@
 import streamlit as st
+from st_aggrid import AgGrid
 import pandas as pd
-import numpy as np
-import urllib.request
-st.title('Datos Demo')
+st.title('Datos aleatorios')
 
-@st.experimental_memo
-def download_data():
-  url = 'https://files.minsa.gob.pe/s/eRqxR35ZCxrzNgr/download'
-  filename = 'data.csv'
-  urllib.request.urlretrieve(url, filename)
+df = pd.read_csv('https://raw.githubusercontent.com/fivethirtyeight/data/master/airline-safety/airline-safety.csv')
+AgGrid(df)
