@@ -1,43 +1,12 @@
-import altair as alt
 import pandas as pd
 import streamlit as st
-from vega_datasets import data
-
-alt.themes.enable("streamlit")
+import numpy as np
 
 @st.experimental_memo
-def get_data():
-    source = data.stocks()
-    source = source[source.date.gt("2004-01-01")]
-    return source
+def download_data():
+    url = 'https://github.com/PeterTXS09/streamlit_demo/blob/main/USD_PEN%20Historical%20Data.csv'
+    df = pd.read_csv(url)
+    return df
 
-source = get_data()
-
-# Original time series chart. Omitted `get_chart` for clarity
-chart = get_chart(source)
-
-# Input annotations
-ANNOTATIONS = [
-    ("Mar 01, 2008", "Pretty good day for GOOG"),
-    ("Dec 01, 2007", "Something's going wrong for GOOG & AAPL"),
-    ("Nov 01, 2008", "Market starts again thanks to..."),
-    ("Dec 01, 2009", "Small crash for GOOG after..."),
-]
-
-# Create a chart with annotations
-annotations_df = pd.DataFrame(ANNOTATIONS, columns=["date", "event"])
-annotations_df.date = pd.to_datetime(annotations_df.date)
-annotations_df["y"] = 0
-annotation_layer = (
-    alt.Chart(annotations_df)
-    .mark_text(size=15, text="⬇", dx=0, dy=-10, align="center")
-    .encode(
-        x="date:T",
-        y=alt.Y("y:Q"),
-        tooltip=["event"],
-    )
-    .interactive()
-)
-
-# Display both charts together
-st.altair_chart((chart + annotation_layer).interactive(), use_container_width=True)
+datos = download_data()
+st.bar_chart(datos['Price'])
