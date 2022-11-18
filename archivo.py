@@ -16,4 +16,4 @@ st.line_chart(data=datos, x='Date', y=['Price', 'High', 'Low'])
 
 st.title('Precio del dólar en volúmenes movidos')
 st.write('Precio del dólar en volúmenes - las unidades están en miles (k))')
-st.line_chart(data=datos, x='Date', y=['Vol.'])
+st.line_chart(data=datos, x='Date', y='Vol.')
