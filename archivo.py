@@ -16,4 +16,7 @@ st.line_chart(data=datos, x='Date', y=['Price', 'High', 'Low'])
 
 st.title('Precio del dólar en volúmenes movidos')
 st.write('Precio del dólar en volúmenes - las unidades están en miles (k))')
-st.line_chart(data=datos, x='Date', y='Vol.222')
+
+datos.Val.str.extract(r'[\d\.]+([KM]+)', expand=False).fillna(1).replace(['K','M'], [10**3, 10**6]).astype(int)
+
+st.line_chart(data=datos, x='Date', y='Vol.')
