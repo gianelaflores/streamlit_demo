@@ -16,7 +16,4 @@ st.line_chart(data=datos, x='Date', y=['Price', 'High', 'Low'])
 
 st.title('Precio del dólar en volúmenes movidos')
 st.write('Precio del dólar con respecto al día anterior')
-
-datos.Vol.str.extract(r'[\d\.]+([KM]+)', expand=False).fillna(1).replace(['K','M'], [10**3, 10**6]).astype(int)
-
 st.line_chart(data=datos, x='Date', y='Change')
