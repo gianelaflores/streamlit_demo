@@ -7,3 +7,6 @@ url = 'https://raw.githubusercontent.com/PeterTXS09/streamlit_demo/main/USD_PEN%
 datos = pd.read_csv(url, sep=',')
 
 st.line_chart(data=datos, x='Date', y='Price')
+
+st.line_chart(data=datos, x='Date', y=['Price', 'High', 'Low'])
+
