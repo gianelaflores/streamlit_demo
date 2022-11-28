@@ -30,6 +30,10 @@ chart_data = pd.DataFrame(
    np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4],
    columns=['lat', 'lon'])
 
+st.header('Precio del dolar por año')
+periodos = st.slider('Seleccionar un año', 2014, 2022, 2014, 1)
+# acá se actualiza el periodo
+
 st.pydeck_chart(pdk.Deck(
     map_style=None,
     initial_view_state=pdk.ViewState(
