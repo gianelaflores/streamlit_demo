@@ -32,8 +32,11 @@ chart_data = pd.DataFrame(
 
 st.header('Precio del dolar por año')
 periodos = st.slider('Seleccionar un año', 2014, 2022, 2014, 1)
+st.write("I'm ", age, 'years old')
 # acá se actualiza el periodo
 
+
+st.header('Ejemplo de mapa')
 st.pydeck_chart(pdk.Deck(
     map_style=None,
     initial_view_state=pdk.ViewState(
@@ -47,9 +50,9 @@ st.pydeck_chart(pdk.Deck(
            'HexagonLayer',
            data=chart_data,
            get_position='[lon, lat]',
-           radius=200,
-           elevation_scale=4,
-           elevation_range=[0, 1000],
+           radius=200, #acumula los valores
+           elevation_scale=4, #da una escala de 0 a 4
+           elevation_range=[0, 1000], # total de posibles valores
            pickable=True,
            extruded=True,
         ),
