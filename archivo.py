@@ -31,9 +31,9 @@ chart_data = pd.DataFrame(
    columns=['lat', 'lon'])
 
 st.header('Precio del dolar por año')
-periodos = st.slider('Seleccionar un año', 2014, 2022, 2014, 1)
-st.write("I'm ", age, 'years old')
-# acá se actualiza el periodo
+periodo = st.slider('Seleccionar un año', 2014, 2022, 2014, 1)
+st.write("Mostrando precio del dolar en el periodo", periodo)
+# acá se actualiza el periodo desde el archivo datos (filtrar con lo visto en la unidad 2)
 
 
 st.header('Ejemplo de mapa')
